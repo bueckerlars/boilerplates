@@ -1,0 +1,140 @@
+global:
+  checkNewVersion: true
+  sendAnonymousUsage: false
+
+# Disable API for production
+api:
+  dashboard: true
+  insecure: true
+
+#----------------------------------------------------
+# EntryPoints
+#----------------------------------------------------
+entryPoints:
+  web:
+    address: ":80"
+    http:
+      redirections:
+        entryPoint:
+          to: websecure
+          scheme: https
+  websecure:
+   address: ":443"
+
+serversTransport:
+  insecureSkipVerify: true
+
+#----------------------------------------------------
+# Certification
+#----------------------------------------------------
+certificatesResolvers:
+  letsencrypt:
+    acme:
+      email: <your.email@example.com>
+      storage: /etc/traefik/certs/acme.json
+      httpChallenge:
+        entryPoint: web
+
+#----------------------------------------------------
+# Providers
+#----------------------------------------------------
+providers:
+  docker:
+    exposedByDefault: false
+    network: proxy
+  file:
+    directory: /etc/traefik
+    watch: true
+
+#----------------------------------------------------
+# Dynamic Routes
+#----------------------------------------------------
+http:
+  routers:
+#   homeassistant:
+#     entryPoints:
+#       - "websecure"
+#     middlewares:
+#       - secHeaders
+#     service: hass-service
+#     rule: "Host(`<homeassistant.example.com>`)"
+#     tls:
+#       certResolver: letsencrypt
+#   proxmox:
+#     entryPoints:
+#       - "websecure"
+#     middlewares:
+#       - default-headers
+#     service: pve
+#     rule: "Host(`pve.example.com`)"
+#     tls:
+#       certResolver: letsencrypt
+#   plex:
+#     entryPoints:
+#       - "websecure"
+#     middlewares:
+#       - default-headers
+#     service: plex
+#     rule: "Host(`plex.example.com`)"
+#     tls:
+#       certResolver: letsencrypt
+
+  services:
+#   hass-service:
+#     loadBalancer:
+#       servers:
+#         - url: http://<homeassistant-ip>:8123
+#   pve:
+#     loadBalancer:
+#       servers:
+#         - url: https://<proxmox-server-ip>:8006
+#   plex:
+#     loadBalancer:
+#        servers:
+#          - url: http://<plex-server-ip>:32400
+
+#----------------------------------------------------
+# Middlewares
+#----------------------------------------------------
+  middlewares:
+    https_redirect:
+      redirectScheme:
+        scheme: https
+
+    secHeaders:
+      headers:
+        browserXssFilter: true
+        contentTypeNosniff: true
+        frameDeny: true
+        sslRedirect: true
+        stsIncludeSubdomains: true
+        stsPreload: true
+        stsSeconds: 31536000
+        customFrameOptionsValue: SAMEORIGIN
+
+    default-headers:
+      headers:
+        frameDeny: true
+        sslRedirect: true
+        browserXssFilter: true
+        contentTypeNosniff: true
+        forceSTSHeader: true
+        stsIncludeSubdomains: true
+        stsPreload: true
+        stsSeconds: 15552000
+        customFrameOptionsValue: SAMEORIGIN
+        customRequestHeaders:
+          X-Forwarded-Proto: https
+
+    default-whitelist:
+      ipWhiteList:
+        sourceRange:
+          - "10.0.0.0/24"
+          - "192.168.0.0/16"
+          - "172.0.0.0/8"
+
+    secured:
+      chain:
+        middlewares:
+          - default-whitelist
+          - default-headers

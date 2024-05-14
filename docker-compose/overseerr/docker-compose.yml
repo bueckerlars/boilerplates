@@ -1,0 +1,28 @@
+---
+version: '3'
+
+# networks:
+#   proxy:
+#     external: true
+
+services:
+  overseerr:
+    image: sctx/overseerr:latest
+    container_name: overseerr
+    environment:
+      # - LOG_LEVEL=debug
+      - TZ=Europe/Berlin
+    ports:
+      - 5055:5055
+    # networks:
+    #   - proxy
+    volumes:
+      - /path/to/appdata/config:/app/config
+    restart: unless-stopped
+    # labels:
+    #   - "traefik.enable=true" 
+    #   - "traefik.http.routers.overseerr.rule=Host(`overseerr.<your-domain.org>`)" 
+    #   - "traefik.http.routers.overseerr.entrypoints=websecure" 
+    #   - "traefik.http.routers.overseerr.tls=true" 
+    #   - "traefik.http.routers.overseerr.tls.certresolver=letsencrypt" 
+    #   - "traefik.http.services.overseerr.loadbalancer.server.port=5055"
