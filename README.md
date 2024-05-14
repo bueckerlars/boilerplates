@@ -9,8 +9,8 @@ Dieses Repository bietet eine Sammlung von Docker Compose-Dateien, Konfiguration
 
 ## Erste Schritte:
 
-Klonen des Repositorys: `git clone https://github.com/bueckerlars/boilderplates.git`
-Wechseln in das Projektverzeichnis: `cd boilerplate-homelab`
+1. Klonen des Repositorys: `git clone https://github.com/bueckerlars/boilderplates.git`
+2. Wechseln in das Projektverzeichnis: `cd boilerplate-homelab`
 
 ## Ressourcen:
 
