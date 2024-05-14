@@ -14,8 +14,8 @@ Wechseln in das Projektverzeichnis: `cd boilerplate-homelab`
 
 ## Ressourcen:
 
-[Docker Compose](https://docs.docker.com/compose/)
-[Ansible](https://www.redhat.com/en/technologies/management/ansible)
+- [Docker Compose](https://docs.docker.com/compose/)
+- [Ansible](https://www.redhat.com/en/technologies/management/ansible)
 
 > Viel Spaß mit deinem Homelab!
 
