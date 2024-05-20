@@ -1,0 +1,23 @@
+---
+version: "3"
+
+# networks:
+#   proxy:
+#     external: true
+
+services:
+  bitwarden:
+    image: vaultwarden/server:latest
+    container_name: bitwarden
+    restart: unless-stopped
+    # networks:
+    #   - proxy
+    environment:
+      - WEBSOCKET_ENABLED=true # Enable WebSocket notifications.
+      - ADMIN_TOKEN=CHANGEME   # CHANGE !
+      - SIGNUPS_ALLOWED=true   
+      - SIGNUPS_VERIFY=true
+    ports:
+      - 9890:80
+    volumes:
+      - ./vw_data:/data
