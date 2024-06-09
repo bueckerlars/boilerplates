@@ -5,7 +5,7 @@ Dieses Repository bietet eine Sammlung von Docker Compose-Dateien, Konfiguration
 ## Enthaltene Inhalte:
 - Docker Compose: Vordefinierte Docker Compose-Dateien für gängige Homelab-Dienste.
 - Konfigurationen: Beispielkonfigurationsdateien zur Anpassung der Dienste.
-- Ansible Playbooks: Automatisierungs-Playbooks für die Bereitstellung und Konfiguration deiner Umgebung.
+- (Ansible Playbooks: Automatisierungs-Playbooks für die Bereitstellung und Konfiguration deiner Umgebung.)
 
 ## Erste Schritte:
 
