@@ -1,0 +1,53 @@
+---
+# For configuration options and examples, please see:
+# https://gethomepage.dev/latest/configs/services
+
+- Networking and Supervision:
+    - Fritz!Box:
+        href: 
+        icon: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQp_XLp8j1VL7LzonNzQrEOdoo0fjaRP2zecE_WbV8sf5QGScN2rIUG-KkRsmgItn2JcaY&usqp=CAU"
+        description: Router
+    - Proxmox:
+        href: 
+        icon: "proxmox.png"
+        description: VM Supervisor
+    - Portainer:
+        href: 
+        icon: "portainer.png"
+        description: Docker UI
+    - TrueNas:
+        href: 
+        icon: "truenas.png"
+        description: NAS
+    - PiHole:
+        href: 
+        icon: "https://media.printables.com/media/prints/569708/images/4559726_7b0f828a-f461-4228-8da3-8022b0415e30/pi-hole-vortex2.png"
+        description: DNS Server and AdBlocking
+    - PiHole:
+        href: 
+        icon: "https://static-00.iconduck.com/assets.00/file-type-nginx-icon-1793x2048-yt5u3fm7.png"
+        description: Reverse Proxy
+
+- Media:
+    - Plex:
+        href: 
+        icon: "plex.png"
+        description: Filme, Serien, Musik
+    - Tautulli:
+        href: 
+        icon: "tautulli.png"
+        description: Plex Stats
+    - Paperless:
+        href: 
+        icon: "paperless.png"
+        description: Dokumentenverwaltung
+    - Denon:
+        href: 
+        icon: "denon.png"
+        description: Denon AVR Webinterface
+
+- Automation:
+    - Homeassistant:
+        href: 
+        icon: "https://static-00.iconduck.com/assets.00/home-assistant-icon-2048x2048-ar79ra8x.png"
+        description: Home Automation

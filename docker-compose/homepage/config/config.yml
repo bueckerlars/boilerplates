@@ -1,0 +1,11 @@
+---
+# General settings for Homepage
+title: "My Home Server"
+favicon: "/assets/favicon.png"
+theme: default
+
+# Header section settings
+header:
+  title: "Home Server"
+  subtitle: "Welcome to my home server"
+  icon: "/assets/server-icon.png"
